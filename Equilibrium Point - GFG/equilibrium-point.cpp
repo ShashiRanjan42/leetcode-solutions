@@ -12,28 +12,27 @@ class Solution{
     int equilibriumPoint(long long a[], int n) {
     
         // Your code here
-        long long int sum = 0;
+        int sum = 0;
         for(int i=0; i<n; i++)
         {
             sum += a[i];
         }
-        long long int leftsum = 0;
-        long long int rightsum = sum;
         
+        int ans;
+        int sum1 = 0;
         for(int i=0; i<n; i++)
         {
-            rightsum -= a[i];
-            
-            if(leftsum == rightsum)
-            return i+1;
-            
-            leftsum += a[i];
+            if(a[i]+sum1 == sum-sum1)
+            {
+                ans = i+1;
+                return ans;
+            }
+            sum1 += a[i];
         }
         return -1;
     }
 
 };
-
 
 //{ Driver Code Starts.
 
